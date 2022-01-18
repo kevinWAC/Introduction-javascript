@@ -39,11 +39,18 @@ function fonctionControleTableau(arr) {
     }
 }
 
-let array = [15,2,10,15];
-console.log(fonctionControleTableau(array));
+let array1 = [15,2,10,15];
+let array2 = [15,2,10,"t"];
+let array3 = [];
+console.log(fonctionControleTableau(array1));
+console.log(fonctionControleTableau(array2));
+console.log(fonctionControleTableau(array3));
 
 function fonctionMoyenne(array) {
 
+    if (!Array.isArray(array)) {
+        throw "Ce n'est pas un tableau";
+    }
     if (array.length === 0) return 0;
 
     for (const iterator of array) {
@@ -62,6 +69,10 @@ function fonctionMoyenne(array) {
     return "Moyenne : " + (total/length);
 }
 
-let arrayMoyenne = [10,10,10];
+let arrayMoyenne1 = [10,10,10];
+let arrayMoyenne2 = [];
+let arrayMoyenne3 = [10,10,"t"];
 
-console.log(fonctionMoyenne(arrayMoyenne));
+console.log(fonctionMoyenne(arrayMoyenne1));
+console.log(fonctionMoyenne(arrayMoyenne2));
+console.log(fonctionMoyenne(arrayMoyenne3));
