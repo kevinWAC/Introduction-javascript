@@ -55,7 +55,7 @@ function fonctionMoyenne(array) {
 
     for (const iterator of array) {
         if(typeof iterator != 'number') {
-            throw 'Erreur dans le tableau';
+           return false;
         }
     }
 

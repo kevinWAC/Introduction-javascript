@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="input1">
+    <input type="text" class="input2">
+    <select name="operateur" class="operateur">
+        <option value="addition">+</option>
+        <option value="soustraction">-</option>
+        <option value="multiplication">*</option>
+        <option value="division">/</option>
+    </select>
+    <button>GO!</button>
+    <section id="resultat">0</section>
+
+    <script>
+
+        let button = document.querySelector("button");
+        let section = document.querySelector("#resultat"); 
+
+        button.onclick = function() {
+            let total = 0;
+            let textOperation = "";
+            let el1 = Number(document.querySelector(".input1").value);
+            let el2 = Number(document.querySelector(".input2").value);
+            let operateur = document.querySelector(".operateur").value;
+            if(isNaN(el1) || isNaN(el2)) {
+                section.innerHTML = 'Vous devez saisir un nombre';
+                section.style.background = 'red'; 
+            } else {
+                switch (operateur) {
+                    case "addition":
+                        total = el1 + el2;
+                        textOperation = "l'addition";
+                        break;
+                    case "soustraction":
+                        total = el1 - el2;
+                        textOperation = "la soustraction";
+                        break;
+                    case "multiplication":
+                        total = el1 * el2;
+                        textOperation = "la multiplication";
+                        break;
+                    case "division":
+                        total = el1 / el2;
+                        textOperation = "la division";
+                        break;
+                    default:
+                        break;
+                }
+
+                section.innerHTML = `Le résultat de ${textOperation} est : ${total} `;
+            }
+        }
+
+    </script>
+</body>
+</html>

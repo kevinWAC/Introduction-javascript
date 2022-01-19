@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    label, button {
+        display: block;
+    }
+    </style>
+
+</head>
+<body>
+    <form action="#" method="post">
+        <label for="name">Nom :</label>
+        <input type="text" class="name" id="name">
+        <label for="firstname">Prénom :</label>
+        <input type="text" class="firstname" id="firstname">
+        <label for="birthday">Date de naissance :</label>
+        <input type="date" data-date-format="YYYY MM DD" class="birthday" id="birthday">
+        <button>Envoyer</button>
+        <span class="erreur"></span>
+    </form>
+    
+    <script>
+        document.querySelector("button").addEventListener("click", function(event) {
+            let name = document.querySelector(".name").value;
+            let firstname = document.querySelector(".firstname").value;
+            let birthday = document.querySelector(".birthday").value;
+            let birthSplit = birthday.split("-");
+            let dateBirthday = new Date(birthSplit[0], birthSplit[1] - 1, birthSplit[2]);
+            const patternName = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
+            let now = new Date();
+            if(!name.match(patternName) || (dateBirthday.getDate() >= now.getDate() && dateBirthday.getFullYear() >= now.getFullYear())) {
+                let node = document.querySelector('.erreur');
+                node.innerHTML="erreur"
+                node.style.background = 'red'; 
+            }else{
+                let node = document.querySelector('.erreur');
+                node.innerHTML=""
+                node.style.background = ''; 
+            }  
+        event.preventDefault();
+        }, false);
+
+
+    </script>
+</body>
+</html>
