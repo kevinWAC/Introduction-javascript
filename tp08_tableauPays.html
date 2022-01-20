@@ -12,7 +12,7 @@
         <thead>
             <tr>
                 <th class="nom">Nom</th>
-                <th class="valeur">Prénom</th>
+                <th class="valeur">Valeur</th>
                 <th class="pourcentage">%</th>
             </tr>
         </thead>
@@ -21,12 +21,13 @@
     </table>
 
 <form>
-    <label for="nom">minimum :</label>
-    <input type="text" class="nom" id="nom">
-    <label for="prenom">maximum :</label>
-    <input type="text" class="prenom" id="prenom">
+    <label for="min">minimum :</label>
+    <input type="number" class="min" id="min">
+    <label for="max">maximum :</label>
+    <input type="number" class="max" id="max">
     <input type="button" onclick="valider()" value="Valider">
 </form>
+<span class="error"></span>
 
     <script src="tp08_tableauPays.js"></script>
 </body>
